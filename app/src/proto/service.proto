@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package tictactoe;
+
+option java_package = "com.example.proto";
+option java_outer_classname = "serviceProto";
+
+message Move_request {
+     string player = 1;
+     string move = 2;
+}
+
+message Move_response {
+    string player = 1;
+    string move = 2;
+}
+
+service playingService{
+    rpc play(stream Move_request) returns (stream Move_response)
+}
